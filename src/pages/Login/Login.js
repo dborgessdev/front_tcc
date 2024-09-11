@@ -5,10 +5,12 @@ import olhoFechadoIcon from "../../assets/img/eye.png";
 import olhoAbertoIcon from "../../assets/img/show.png";
 import { useState } from "react";
 import Botao from "../../component/Botao/Botao";
+import { useNavigate } from "react-router-dom";
 
 function Login() {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
+    const navigate = useNavigate();
 
     return(
         <div className={style.container}>
@@ -28,7 +30,7 @@ function Login() {
                     imagen3={olhoAbertoIcon}
                 />
                 <a href="#">Forgot password?</a>
-                <Botao children={"Login"} onClick={() => console.log(email, password)} color={'brancoButton'} />
+                <Botao children={"Login"} onClick={() => navigate("/menu")} color={'brancoButton'} />
                 <div className={style.register}>
                     <p>Don't have an account? <a href="#">Register here!</a></p>
                 </div>
