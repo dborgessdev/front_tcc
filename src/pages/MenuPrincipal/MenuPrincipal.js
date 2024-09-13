@@ -3,12 +3,14 @@ import Botao from '../../component/Botao/Botao';
 import Fila from '../../component/fila/Fila';
 import CadastrarPaciente from '../../component/CadastrarPaciente/CadastrarPaciente';
 import { useState } from 'react';
-import { mostraFilaTriagem, mostraFilaPediatria } from '../../service/API_function';
-import AdicionarFila from '../../component/AdicionarFila/AdicionarFila';
+import { mostraFilaTriagem, mostraFilaPediatria, mostraFilaMedico } from '../../service/API_function';
+import ListarPacientes from '../../component/ListarPacientes/ListarPacientes';
 
 function MenuPrincipal() {
     const [modalOpen, setModalOpen] = useState(false);
     const [modalOpen2, setModalOpen2] = useState(false);
+    const [modalOpen3, setModalOpen3] = useState(false);
+    const [modalOpen4, setModalOpen4] = useState(false);
 
     const toggleModal = () => {
         setModalOpen(!modalOpen);
@@ -16,6 +18,14 @@ function MenuPrincipal() {
 
     const toggleModal2 = () => {
         setModalOpen2(!modalOpen2);
+    }
+
+    const toggleModal3 = () => {
+        setModalOpen3(!modalOpen3);
+    }
+
+    const toggleModal4 = () => {
+        setModalOpen4(!modalOpen4);
     }
 
 
@@ -36,14 +46,14 @@ function MenuPrincipal() {
                     <Botao children={"Add Paciente"} onClick={() => toggleModal()} color={'brancoButton'} />
                     <Botao children={"Add Fila"} onClick={() => toggleModal2()} color={'brancoButton'} />
                     <Botao children={"Sair"} onClick={() => console.log("Sair")} color={'brancoButton'} />
-                    <Botao children={"Sair"} onClick={() => console.log("Sair")} color={'brancoButton'} />
-                    <Botao children={"Sair"} onClick={() => console.log("Sair")} color={'brancoButton'} />
+                    <Botao children={"Exclurir da Fila"} onClick={() => toggleModal3()} color={'brancoButton'} />
+                    <Botao children={"Exclurir Paciente"} onClick={() => toggleModal4()} color={'brancoButton'} />
                 </div>
                 <div className={style.container2}>
                     <div className={style.filas}>
                         <Fila titulo={"Triagem"} funcao={mostraFilaTriagem}/>
                         <Fila titulo={"Pediatria"} funcao={mostraFilaPediatria}/>
-                        <Fila titulo={"Fila 3"} />
+                        <Fila titulo={"Medico"} funcao={mostraFilaMedico} />
                     </div>
                     <div className={style.detalhes}>
                         Para um bom funcionamento organização é essencial
@@ -51,7 +61,9 @@ function MenuPrincipal() {
                 </div>
             </div>
             <CadastrarPaciente isOpen={modalOpen} onClose={toggleModal} />
-            <AdicionarFila isOpen={modalOpen2} onClose={toggleModal2} />
+            <ListarPacientes isOpen={modalOpen2} onClose={toggleModal2} botao={"Adicionar"} modeal={"1"} />
+            <ListarPacientes isOpen={modalOpen3} onClose={toggleModal3} botao={"Excluir"} modeal={"2"} />
+            <ListarPacientes isOpen={modalOpen4} onClose={toggleModal4} botao={"Excluir"} modeal={"3"} />
         </div>
     );
 }
