@@ -1,11 +1,11 @@
-import style from './AdicionarFila.module.css';
+import style from './ListarPacientes.module.css';
 import Botao from '../Botao/Botao';
 import { useState, useEffect } from 'react';
 import { listarPacintes } from '../../service/API_function';
 import PacientesFilaUnitario from '../PacientesFilaUnitario/PacientesFilaUnitario';
 import Imput from '../Imput/Imput';
 
-function AdicionarFila({ isOpen, onClose }) {
+function AdicionarFila({ isOpen, onClose, botao, modeal }) {
     const [listaPacientes, setListaPacientes] = useState([]);
     const [termoPesquisa, setTermoPesquisa] = useState('');
 
@@ -62,6 +62,8 @@ function AdicionarFila({ isOpen, onClose }) {
                                                 nome={paciente.nome}
                                                 dataNasc={paciente.dataNasc}
                                                 pacientekey={paciente.id}
+                                                botao={botao}
+                                                modeal={modeal}
                                             />
                                         ))}
                                     </div>

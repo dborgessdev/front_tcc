@@ -5,14 +5,14 @@ import { cadastrarFila } from '../../service/API_function';
 
 function EscolhaDeFila({ isOpen, onClose, paciente }) {
     const [fila, setFila] = useState('triagem'); // Fila inicial
-    const [prioridade, setPrioridade] = useState(3); // Prioridade inicial (normal)
+    const [prioridade, setPrioridade] = useState('normal'); // Prioridade inicial (normal)
 
     const handleFilaChange = (e) => {
         setFila(e.target.value);
     };
 
     const handlePrioridadeChange = (e) => {
-        setPrioridade(parseInt(e.target.value)); // Converte para número
+        setPrioridade(e.target.value); // Converte para número
     };
 
     const handleSubmit = () => {
@@ -46,15 +46,17 @@ function EscolhaDeFila({ isOpen, onClose, paciente }) {
                             <label htmlFor="fila">Fila:</label>
                             <select id="fila" value={fila} onChange={handleFilaChange}>
                                 <option value="triagem">Triagem</option>
+                                <option value="pediatra">Pediatria</option>
+                                <option value="medico">Medico</option>
                                 {/* Outras filas podem ser adicionadas aqui futuramente */}
                             </select>
                         </div>
                         <div className={style.selectContainer}>
                             <label htmlFor="prioridade">Prioridade:</label>
                             <select id="prioridade" value={prioridade} onChange={handlePrioridadeChange}>
-                                <option value={1}>Urgente</option>
-                                <option value={2}>Prioritário</option>
-                                <option value={3}>Normal</option>
+                                <option value={'urgente'}>Urgente</option>
+                                <option value={'preferencial'}>Preferencial</option>
+                                <option value={'normal'}>Normal</option>
                             </select>
                         </div>
 
