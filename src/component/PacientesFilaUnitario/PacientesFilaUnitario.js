@@ -4,7 +4,7 @@ import EscolhaDeFila from '../EscolhaDeFila/EscolhaDeFila';
 import style from './PacientesFilaUnitario.module.css';
 
 
-function PacientesFilaUnitario({ cpf, nome, dataNasc, key }) {
+function PacientesFilaUnitario({ cpf, nome, dataNasc, pacientekey }) {
     const [isModalOpen, setModalOpen] = useState(false);
 
     const handleOpenModal = () => {
@@ -28,7 +28,8 @@ function PacientesFilaUnitario({ cpf, nome, dataNasc, key }) {
         <EscolhaDeFila 
             isOpen={isModalOpen} 
             onClose={handleCloseModal} 
-            paciente={{ cpf, nome, dataNasc, key }}
+            paciente={{ cpf, nome, dataNasc, pacientekey }}
+
         />
         </>
     );

@@ -26,8 +26,8 @@ export const cadastrarFila = async (paciente) => {
     return response.data;
 };
 
-export const obiterPaciente = async (paciente) => {
-    const response = await axiosInstance.get('/pacientes/obter/${paciente}');
+export const obterPaciente = async (paciente) => {
+    const response = await axiosInstance.get('/pacientes/obter/' + paciente);
     return response.data;
 };
 

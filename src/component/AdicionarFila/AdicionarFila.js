@@ -4,13 +4,12 @@ import { useState, useEffect } from 'react';
 import { listarPacintes } from '../../service/API_function';
 import PacientesFilaUnitario from '../PacientesFilaUnitario/PacientesFilaUnitario';
 import Imput from '../Imput/Imput';
-import { json } from 'react-router-dom';
 
 function AdicionarFila({ isOpen, onClose }) {
-    const [listaPacientes, setListaPacientes] = useState('');
+    const [listaPacientes, setListaPacientes] = useState([]);
     const [termoPesquisa, setTermoPesquisa] = useState('');
 
-    useEffect(() => {
+    useEffect(() => { // Atualiza a lista de pacientes
         const fetchPacientes = async () => {
             if (isOpen) {
                 try {
@@ -30,9 +29,7 @@ function AdicionarFila({ isOpen, onClose }) {
         setTermoPesquisa(e.target.value);
     };
 
-
-    const pacientesFiltrados = Object.keys(listaPacientes).filter((key) => {
-        const paciente = listaPacientes[key];
+    const pacientesFiltrados = listaPacientes.filter((paciente) => {
         const termoLower = termoPesquisa.toLowerCase();
         return (
             paciente.nome.toLowerCase().includes(termoLower) || 
@@ -58,17 +55,15 @@ function AdicionarFila({ isOpen, onClose }) {
                                         <p>Ação</p>
                                     </div>
                                     <div className={style.corpo}>
-                                        {pacientesFiltrados.map((key) => {
-                                            const paciente = listaPacientes[key];
-                                            return (
-                                                <PacientesFilaUnitario
-                                                    key={key}
-                                                    cpf={paciente.cpf}
-                                                    nome={paciente.nome}
-                                                    dataNasc={paciente.dataNasc}
-                                                />
-                                            );
-                                        })}
+                                        {pacientesFiltrados.map((paciente, index) => (
+                                            <PacientesFilaUnitario
+                                                key={index}
+                                                cpf={paciente.cpf}
+                                                nome={paciente.nome}
+                                                dataNasc={paciente.dataNasc}
+                                                pacientekey={paciente.id}
+                                            />
+                                        ))}
                                     </div>
                                 </div>
                             </div>
