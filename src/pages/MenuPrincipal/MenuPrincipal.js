@@ -45,9 +45,8 @@ function MenuPrincipal() {
                 <div className={style.botoes}>
                     <Botao children={"Add Paciente"} onClick={() => toggleModal()} color={'brancoButton'} />
                     <Botao children={"Add Fila"} onClick={() => toggleModal2()} color={'brancoButton'} />
-                    <Botao children={"Sair"} onClick={() => console.log("Sair")} color={'brancoButton'} />
-                    <Botao children={"Exclurir da Fila"} onClick={() => toggleModal3()} color={'brancoButton'} />
-                    <Botao children={"Exclurir Paciente"} onClick={() => toggleModal4()} color={'brancoButton'} />
+                    <Botao children={"Excluir da Fila"} onClick={() => toggleModal3()} color={'brancoButton'} />
+                    <Botao children={"Excluir Paciente"} onClick={() => toggleModal4()} color={'brancoButton'} />
                 </div>
                 <div className={style.container2}>
                     <div className={style.filas}>
