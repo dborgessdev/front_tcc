@@ -33,20 +33,22 @@ function MenuPrincipal() {
         <div className={style.container}>
             <div className={style.navebar}>
                 <div className={style.logo}>
-                    Teste
+                    FilaFacil
                 </div>
                 <div className={style.user}>
-                    <a>Home</a>
-                    <a>Home</a>
-                    <a>Home</a>
+                    <a>Menu Principal</a>
+                    <a>Painel de Senhas</a>
+                    <a>Novo Paciente</a>
+                    <a>Triagem</a>
+                    <a>Novo ADM</a>
                 </div>
             </div>
             <div className={style.content}>
                 <div className={style.botoes}>
-                    <Botao children={"Add Paciente"} onClick={() => toggleModal()} color={'brancoButton'} />
-                    <Botao children={"Add Fila"} onClick={() => toggleModal2()} color={'brancoButton'} />
-                    <Botao children={"Excluir da Fila"} onClick={() => toggleModal3()} color={'brancoButton'} />
-                    <Botao children={"Excluir Paciente"} onClick={() => toggleModal4()} color={'brancoButton'} />
+                    <Botao children={"Add Paciente"} onClick={() => toggleModal()} color={'hexBlueColor'} />
+                    <Botao children={"Add Fila"} onClick={() => toggleModal2()} color={'hexBlueColor'} />
+                    <Botao children={"Excluir da Fila"} onClick={() => toggleModal3()} color={'hexBlueColor'} />
+                    <Botao children={"Excluir Paciente"} onClick={() => toggleModal4()} color={'hexBlueColor'} />
                 </div>
                 <div className={style.container2}>
                     <div className={style.filas}>

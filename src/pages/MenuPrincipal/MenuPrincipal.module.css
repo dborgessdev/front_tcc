@@ -1,5 +1,6 @@
 .container {
-    background-image: url("../../assets/img/topography.svg");
+    /* url("../../assets/img/topography.svg");*/
+    background-color: #F1F1F1; 
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
@@ -15,11 +16,12 @@
 .navebar {
     height: 10%;
     width: 100%;
-    border-radius: 20px;
+    /*border-radius: 20px;*/
     margin-bottom: auto;
     display: flex;
     align-items: center;
     justify-content: space-between;
+    background-color: #BEBEBE;
     backdrop-filter: blur(18px);
 }
 
